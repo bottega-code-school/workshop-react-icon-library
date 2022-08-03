@@ -1,37 +1,29 @@
 import * as React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Icon, IconName } from "./icons/Icon";
-// import { AiFillHome, AiOutlineContacts } from "react-icons/ai";
-// import { GrSend } from "react-icons/gr";
-// import { RiCalendarEventLine } from "react-icons/ri";
+import { AiFillHome, AiOutlineContacts } from "react-icons/ai";
+import { GrSend } from "react-icons/gr";
+import { RiCalendarEventLine } from "react-icons/ri";
 
 const logo = require("../../static/assets/images/logo.png");
 
-const links: { to: string; label: string; icon: IconName }[] = [
-  { to: "/", label: "Home", icon: "home" },
-  { to: "/about", label: "About", icon: "information" },
-  { to: "/contact", label: "Contact", icon: "sendMessage" },
-  { to: "/events", label: "Events", icon: "calendar" },
+const reactIconLinks: { to: string; label: string; icon: React.ReactNode }[] = [
+  { to: "/", label: "Home", icon: <AiFillHome className="custom-icon" /> },
+  {
+    to: "/about",
+    label: "About",
+    icon: <AiOutlineContacts className="custom-icon" />,
+  },
+  {
+    to: "/contact",
+    label: "Contact",
+    icon: <GrSend className="custom-icon" />,
+  },
+  {
+    to: "/events",
+    label: "Events",
+    icon: <RiCalendarEventLine className="custom-icon" />,
+  },
 ];
-
-// const reactIconLinks: { to: string; label: string; icon: React.ReactNode }[] = [
-//   { to: "/", label: "Home", icon: <AiFillHome className="custom-icon" /> },
-//   {
-//     to: "/about",
-//     label: "About",
-//     icon: <AiOutlineContacts className="custom-icon" />,
-//   },
-//   {
-//     to: "/contact",
-//     label: "Contact",
-//     icon: <GrSend className="custom-icon" />,
-//   },
-//   {
-//     to: "/events",
-//     label: "Events",
-//     icon: <RiCalendarEventLine className="custom-icon" />,
-//   },
-// ];
 
 const NavBar = () => {
   return (
@@ -42,7 +34,7 @@ const NavBar = () => {
         </Link>
 
         <div className="nav-links">
-          {links.map(({ to, label, icon }) => (
+          {reactIconLinks.map(({ to, label, icon }) => (
             <NavLink
               to={to}
               key={to}
@@ -50,8 +42,7 @@ const NavBar = () => {
               activeClassName="nav-links--active-item"
               exact
             >
-              {/* {icon} */}
-              <Icon name={icon} />
+              {icon}
               <div className="label">{label}</div>
             </NavLink>
           ))}
