@@ -1,7 +1,7 @@
-# Build an HTML Parser in React
+# Build your own SVG Icon Library in React
 
 ## Objectives:
 
-- Build a React JS component that renders HTML content
-- Implement functions that parse HTML attributes
-- Create a process for swapping out specific HTML attributes for React components
+- Model an icon library of SVG values
+- Create a component to render icons
+- Customize styles for rendered icons
